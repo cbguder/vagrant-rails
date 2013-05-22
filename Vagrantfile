@@ -3,8 +3,10 @@
 
 require 'digest/md5'
 
-postgres_password = "postgres"
-encrypted_password = Digest.hexencode(Digest::MD5.digest(postgres_password + "postgres"))
+def encrypt_password(username, password)
+  password_hash = Digest::MD5.digest(password + username)
+  "md5" + Digest.hexencode(password_hash)
+end
 
 Vagrant.configure("2") do |config|
   config.vm.box = "precise64"
@@ -19,7 +21,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "rvm::vagrant"
 
     chef.json = {
-      "postgresql" => {"password" => {"postgres" => encrypted_password}},
+      "postgresql" => {"password" => {"postgres" => encrypt_password("postgres", "password")}},
       "rvm" => {"default_ruby" => "ruby-2.0.0-p195"}
     }
   end
