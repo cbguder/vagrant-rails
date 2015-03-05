@@ -11,24 +11,12 @@ SITE
       apt (>= 1.9.0)
       build-essential (>= 0.0.0)
       openssl (~> 4.0.0)
-    ulimit (0.3.2)
-
-GIT
-  remote: https://github.com/brianbianco/redisio
-  ref: master
-  sha: ef4c8f1d79bfd2bf26fb23be367c03ecb9bd92eb
-  specs:
     redisio (2.2.4)
       build-essential (>= 0.0.0)
       ulimit (>= 0.1.2)
-
-GIT
-  remote: https://github.com/fnichol/chef-rvm
-  ref: master
-  sha: edf7df37731e8664075a8d3cad5a5daac874a0f4
-  specs:
-    rvm (0.10.1)
+    rvm (0.9.2)
       chef_gem (>= 0.0.0)
+    ulimit (0.3.2)
 
 DEPENDENCIES
   apt (>= 0)

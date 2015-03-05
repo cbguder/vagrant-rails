@@ -5,5 +5,5 @@ site 'http://community.opscode.com/api/v1'
 
 cookbook 'apt'
 cookbook 'postgresql'
-cookbook 'redisio', git: 'https://github.com/brianbianco/redisio'
-cookbook 'rvm', git: 'https://github.com/fnichol/chef-rvm'
+cookbook 'redisio'
+cookbook 'rvm'

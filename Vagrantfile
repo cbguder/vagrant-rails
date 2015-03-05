@@ -15,14 +15,14 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "apt"
     chef.add_recipe "postgresql::server"
-    chef.add_recipe "redisio::install"
+    chef.add_recipe "redisio"
     chef.add_recipe "redisio::enable"
     chef.add_recipe "rvm::system"
     chef.add_recipe "rvm::vagrant"
 
     chef.json = {
       "postgresql" => {"password" => {"postgres" => encrypt_password("postgres", "password")}},
-      "rvm" => {"default_ruby" => "ruby-2.0.0-p195"}
+      "rvm" => {"default_ruby" => "ruby-2.2.1"}
     }
   end
 end
